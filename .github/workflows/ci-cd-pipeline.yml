@@ -27,8 +27,9 @@ jobs:
 
     - name: Configure Databricks CLI
       run: |
-        databricks configure --token
+        databricks configure --token ${{ secrets.DATABRICKS_TOKEN }}
 
     - name: Deploy Notebooks to Databricks
       run: |
         databricks workspace import_dir ./notebooks /Workspace/DatabricksCI/CD --overwrite
+
